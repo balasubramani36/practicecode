@@ -1,0 +1,271 @@
+class bankdetails:
+    def getdata(self):
+        self.accountno=int(input("enter accno:"))
+        self.accountname=input("enter accnount name:")
+        self.openingdate=input("enter opening date:")
+        self.amountdeposite=int(input("enter amountdeposite:"))
+        self.accounttype=input("enter account type:")
+    def printdata(self):
+        print("accountNo:",self.accountno)
+        print("accountname:",self.accountname)
+        print("openingdate:",self.openingdate)
+        print("amountdeposite:",self.amountdeposite)
+        print("accounttype:",self.accounttype)
+    def dotransaction(self):
+       print("1)withdrawal\n2)amount deposite")
+       self.a=int(input("Enter the amount:"))
+       self.ch=int(input("enter the choice:"))
+       if(self.ch==1):
+           print("total amount:",self.amountdeposite+self.a)
+       if(self.ch==2):
+           print("total amount:",self.amountdeposite-self.a)
+       else:
+           print("invalid choice")
+s1=bankdetails()
+s1.getdata()
+s1.printdata()
+s1.dotransaction()
+class payslip:
+    def getdata(self):
+        self.employeecode=int(input("Enter employeecode:"))
+        self.employeename=input("enter employee name:")
+        self.basicsalary=int(input("enter basic salary:"))
+    def printdata(self):
+        print("employeecode:",self.employeecode)
+        print("employeename:",self.employeename)
+        print("basicsalary:",self.basicsalary)
+    def calculatepay(self):
+        self.hra=(self.basicsalary*10)/100
+        print("hra:",self.hra)
+        self.da=(self.basicsalary*20)/100
+        print("da:",self.da)
+        self.gross=self.basicsalary+self.da+self.hra
+        print("gross:",self.gross)
+s1=payslip()
+s1.getdata()
+s1.printdata()
+s1.calculatepay()
+class example:
+    def __init__(self):
+        print("constructor is called")
+    def display(self):
+        print("normal method is called")
+    def __del__(self):
+        print("destructor is called")
+e=example()
+e.display()
+class example:
+    def __init__(self):
+        print("default constructor")
+        self.a=100
+        self.b=200
+    def display(self):
+        print("add:",self.a+self.b)
+e=example()
+e.display()
+class example:
+    def __init__(self,x,y):
+        print("parameterized constructor")
+        self.a = x
+        self.b = y
+
+    def display(self):
+        print("add:", self.a + self.b)
+e = example(10, 20)
+e.display()
+class EB:
+    def getunit(self):
+        self.ebnumber=int(input("enter ebnumber:"))
+        self.unitunitconsumed=int(input("Enter unit consumed:"))
+        self.area=input("enter area:")
+        if self.unitunitconsumed>500:
+            self.rate=2
+        if self.unitunitconsumed>300:
+            self.rate=1
+        if self.unitunitconsumed>100:
+            self.rate=0.70
+        else:
+            self.rate=0.40
+    def printEB(self):
+        print("ebnumber:",self.ebnumber)
+        print("unitunitconsumed:",self.unitunitconsumed)
+        print("amount:",self.unitunitconsumed*self.rate)
+        print("area:",self.area)
+c1=EB()
+c1.getunit()
+c1.printEB()
+class one:
+    a=1000
+    b=200
+    def add(self):
+        print("add:",self.a+self.b)
+class Two(one):
+    def sub(self):
+        print("sub:",self.a-self.b)
+class Three(Two):
+    def mul(self):
+        print("mul:",self.a*self.b)
+obj=Three()
+obj.add()
+obj.sub()
+obj.mul()
+class one:
+    a=100
+    b=200
+    def add(self):
+        print("add:",self.a+self.b)
+class Two(one):
+    def sub(self):
+        print("sub:",self.a-self.b)
+class Three(one):
+    def mul(self):
+        print("mul:",self.a*self.b)
+obj=Two()
+obj.add()
+obj.sub()
+obj=Three()
+obj.add()
+obj.mul()
+class one:
+    a=100
+    b=200
+    def add(self):
+        print("add:",self.a+self.b)
+class Two:
+    x=10
+    y=20
+    def sub(self):
+        print("sub:",self.x-self.y)
+class Three(one,Two):
+    def mul(self):
+        print("mul:",self.a*self.b)
+        print("mul:",self.x*self.y)
+obj=Three()
+obj.add()
+obj.sub()
+obj.mul()
+class employee:
+    def __init__(self,name,salary):
+        self.name=name
+        self.salary=salary
+    def __mul__(self, other):
+        print("name:",self.name)
+        return self.salary*other.days
+class payroll:
+    def __init__(self,days):
+        self.days=days
+obj1=employee("prabhu",10000)
+obj2=payroll(28)
+print("netsalary:",obj1*obj2)
+class parent:
+    def calci(self,a,b):
+        print("sum:",a+b)
+class child(parent):
+    def calci(self,a,b):
+        print("sub:",a-b)
+p=parent()
+p.calci(10,20)
+c=child()
+c.calci(20,10)
+class base:
+    def getdetails(self):
+        self.employeename=input("enter the emp name:")
+        self.employeecode=int(input("Enter the empcode:"))
+        self.job=input("enter the job:")
+        self.age=int(input("enter the age:"))
+        self.experience=int(input("enter the experience:"))
+class derived(base):
+    def printdetails(self):
+        print("employeename:",self.employeename)
+        print("employeecode:",self.employeecode)
+        print("job:",self.job)
+        print("age:",self.age)
+        print("experience:",self.experience)
+obj1=derived()
+obj1.getdetails()
+obj1.printdetails()
+class train:
+    def traindetails(self):
+        self.trainno=int(input("enter trainno:"))
+        self.trainname=input("enter trainname:")
+        self.fair=int(input("Enter trainfair:"))
+class electrictrain(train):
+    def getelectrictraindetails(self):
+        self.coaches=int(input("enter coaches:"))
+        self.seats=int(input("enter seats:"))
+class passengers(electrictrain):
+    def getpassengersdetails(self):
+        self.name=input("enter the name:")
+        self.age=int(input("enter the age:"))
+    def printdetails(self):
+        print("trainno:",self.trainno)
+        print("trainname:",self.trainname)
+        print("fair:",self.fair)
+        print("coaches:",self.coaches)
+        print("seats:",self.seats)
+t=passengers()
+t.traindetails()
+t.getelectrictraindetails()
+t.getpassengersdetails()
+t.printdetails()
+class patient:
+    def getpatientdetails(self):
+        self.patientname=input("enter the patientname:")
+        self.age=int(input("enter the age:"))
+        self.gender=input("enter the gender:")
+class hospital:
+    def gethospitalname(self):
+        self.wardno=int(input("enter the wardno:"))
+        self.bedno=int(input("enter the bedno:"))
+        self.hospital=input("enter the hosptial:")
+        self.illness=input("enter the illness:")
+        self.date=int(input("enter the date:"))
+class admission(patient,hospital):
+    def printadmissiondetails(self):
+        print("patientname:",self.patientname)
+        print("patientage:",self.age)
+        print("gender:",self.gender)
+        print("wardno:",self.wardno)
+        print("bedno:",self.bedno)
+        print("hospital:",self.hospital)
+        print("illness:",self.illness)
+        print("date:",self.date)
+obj=admission()
+obj.getpatientdetails()
+obj.gethospitalname()
+obj.printadmissiondetails()
+class student:
+    def getstudentdetails(self):
+        self.studentno=int(input("enter student no:"))
+        self.studentname=input("enter student name:")
+        self.firstmark=int(input("enter firstmark:"))
+        self.secondmark=int(input("enter secondmark:"))
+        self.thirdmark=int(input("Enter thirdmark:"))
+    def printstudentdetails(self):
+        print("studentno:",self.studentno)
+        print("studentname:",self.studentname)
+        print("firstmark:",self.firstmark)
+        print("secondmark:",self.secondmark)
+        print("thirdmark:",self.thirdmark)
+    def getresult(self):
+        if(self.firstmark >= 50 and self.secondmark >= 50 and self.thirdmark >= 50):
+            print("pass")
+        else:
+            print("fail")
+        self.average=self.total/3
+    def printresult(self):
+        print("total:",self.total)
+        print("average:",self.average)
+s1=student()
+s1.getstudentdetails()
+s1.printstudentdetails()
+s1.getresult()
+s1.printresult()
+
+def func(x,y=2):
+    r=1
+    for i in range(y):
+        r=r*x
+    return r
+print(func(3))
+print(func(3,3))
